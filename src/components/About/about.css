@@ -1,0 +1,100 @@
+.about-me {
+  width: 90%;
+  margin: 0 auto;
+  max-width: 50em;
+  margin-top: 5em;
+  margin-bottom: 5em;
+}
+
+.about-me::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+.about-img {
+  max-height: 25em;
+}
+
+@media (min-width: 42em) {
+  .about-img {
+    float: left;
+    margin-right: 1em;
+  }
+}
+
+.about-title {
+  text-shadow: 0 0 0.05em black;
+  margin-bottom: 0.25em;
+}
+
+.about-subtitle {
+  margin: 0.5em 0;
+  text-align: left;
+}
+
+.about-text,
+.about-text a {
+  color: #606060;
+}
+
+.about-text {
+  text-align: left;
+}
+
+.about-text a:hover {
+  color: #a7a7a7;
+}
+
+@supports (display: grid) {
+  .about-me {
+    display: grid;
+    grid-template-columns:
+      [port-start] minmax(15em, 1fr) [name-start] minmax(4em, 1fr)
+      [img-end] 2fr [port-end];
+    grid-column-gap: 0.5em;
+  }
+
+  .about-img {
+    grid-column: port / img;
+    grid-row: 1 / 2;
+  }
+
+  @media (min-width: 50em) {
+    .about-img {
+      grid-row: 1 / 4;
+    }
+  }
+
+  .about-title {
+    grid-column: name / port;
+    grid-row: 1 / 2;
+    align-self: end;
+  }
+
+  @media (min-width: 50em) {
+    .about-title {
+      text-shadow: 0 0 0.1em black;
+    }
+  }
+
+  .about-subtitle,
+  .about-text {
+    grid-column: port / port;
+  }
+
+  @media (min-width: 50em) {
+    .about-subtitle,
+    .about-text {
+      grid-column: image-end / port-end;
+    }
+  }
+
+  .about-subtitle {
+    grid-row: 2 / 3;
+  }
+
+  .about-text {
+    grid-row: 3 / 4;
+  }
+}

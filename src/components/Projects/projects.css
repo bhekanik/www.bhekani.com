@@ -1,0 +1,27 @@
+.portfolio {
+  text-align: center;
+  background: #e8e9eb;
+  padding: 5em 0;
+}
+
+.portfolio-items {
+  display: flex;
+  flex-wrap: wrap;
+  width: 90%;
+  margin: 0 auto;
+  max-width: 75em;
+}
+
+@supports (display: grid) {
+  .portfolio-items {
+    display: grid;
+    grid-gap: 0.2em;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (min-width: 50em) {
+    .portfolio-items {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+}
