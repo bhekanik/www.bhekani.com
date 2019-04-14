@@ -1,8 +1,23 @@
-import React from "react";
+import React, { useEffect, useContext } from "react";
 
 import "./contact.css";
+import { Context } from "../../App";
 
 const Contact = () => {
+  const dispatch = useContext(Context);
+
+  useEffect(() => {
+    dispatch({ type: "page", payload: "contact" });
+    dispatch({
+      type: "nav",
+      payload: {
+        navBackgroundColor: "white",
+        linkColor: "#223843",
+        boxShadow: "0 10px 10px -10px rgba(0, 0, 0, 0.5)"
+      }
+    });
+  }, []);
+
   return (
     <section className="contact" id="contact">
       <h1>Contact Me</h1>

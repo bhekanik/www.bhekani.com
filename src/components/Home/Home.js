@@ -1,5 +1,8 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useContext, useEffect } from "react";
+
+import Intro from "../Intro/Intro";
+import CallToAction from "../CallToAction/CallToAction";
+import { Context } from "../../App";
 
 import "./home.css";
 
@@ -15,50 +18,89 @@ import arcgisLogo from "../../img/arcgis_logo.png";
 import gitLogo from "../../img/git_logo.png";
 import olLogo from "../../img/ol_logo.png";
 
-const Home = () => {
+const Home = props => {
+  const dispatch = useContext(Context);
+
+  const changeNavStyle = () => {
+    if (document.querySelector(".intro").getBoundingClientRect().top > 0) {
+      dispatch({
+        type: "nav",
+        payload: {
+          navBackgroundColor: "transparent",
+          linkColor: "#e8e9eb",
+          boxShadow: "none"
+        }
+      });
+    } else {
+      dispatch({
+        type: "nav",
+        payload: {
+          navBackgroundColor: "white",
+          linkColor: "#223843",
+          boxShadow: "0 10px 10px -10px rgba(0, 0, 0, 0.5)"
+        }
+      });
+    }
+  };
+
+  useEffect(() => {
+    dispatch({ type: "page", payload: "home" });
+
+    changeNavStyle();
+
+    window.addEventListener("scroll", changeNavStyle);
+
+    return () => {
+      window.removeEventListener("scroll", changeNavStyle);
+    };
+  }, []);
+
   return (
     <div>
       <div className="welcome parallax--bg" id="home">
         <h1>
-          <span>Full Stack Web Developer, GIS Specialist & Civil Engineer</span>
+          <span>
+            {"Full Stack Web Developer, GIS Specialist & Civil Engineer"}
+          </span>
           <p>
-            I create impactful and feature driven applications to help
-            businesses make a statement. I work as a GIS Developer at ESRI South
-            Africa and I am dedicated to building intuitive, well-designed
-            software.
+            {
+              "I create impactful and feature driven applications to help businesses make a statement. I work as a GIS Developer at ESRI South Africa and I am dedicated to building intuitive, well-designed software."
+            }
           </p>
         </h1>
         <img className="welcome-down" src={arrow} alt="" />
       </div>
+      <Intro />
       <div className="tech">
-        <h2>Working with the newest technology.</h2>
+        <h2>{"Working with the newest technology."}</h2>
         <p>
-          My philosophy is that all applications should be modern and intuitive
-          whether they are for mobile or desktop. I take pride in my knowledge
-          in a variety of different technologies to build whatever - whenever.
+          {
+            "My philosophy is that all applications should be modern and intuitive whether they are for mobile or desktop. I take pride in my knowledge in a variety of different technologies to build whatever - whenever."
+          }
+          "
         </p>
-        <div class="technologies__items">
-          <img src={html5Logo} alt="HTML5" class="tech__logo" />
-          <img src={cssLogo} alt="CSS3" class="tech__logo" />
-          <img src={jsLogo} alt="JavaScript" class="tech__logo" />
-          <img src={sassLogo} alt="SASS/SCSS" class="tech__logo" />
-          <img src={pythonLogo} alt="Python" class="tech__logo" />
-          <img src={reactLogo} alt="ReactJS" class="tech__logo" />
-          <img src={reactNativeLogo} alt="React Native" class="tech__logo" />
+        <div className="technologies__items">
+          <img src={html5Logo} alt="HTML5" className="tech__logo" />
+          <img src={cssLogo} alt="CSS3" className="tech__logo" />
+          <img src={jsLogo} alt="JavaScript" className="tech__logo" />
+          <img src={sassLogo} alt="SASS/SCSS" className="tech__logo" />
+          <img src={pythonLogo} alt="Python" className="tech__logo" />
+          <img src={reactLogo} alt="ReactJS" className="tech__logo" />
+          <img
+            src={reactNativeLogo}
+            alt="React Native"
+            className="tech__logo"
+          />
           <img
             src={arcgisLogo}
             alt="ArcGIS JavaScript API"
-            class="tech__logo"
+            className="tech__logo"
           />
-          <img src={gitLogo} alt="GIT" class="tech__logo" />
-          <img src={olLogo} alt="OpenLayers" class="tech__logo" />
+          <img src={gitLogo} alt="GIT" className="tech__logo" />
+          <img src={olLogo} alt="OpenLayers" className="tech__logo" />
         </div>
       </div>
-      <div className="cta">
-        <h2>Ready to start your own project?</h2>
-        <h3>Let's have a chat.</h3>
-        <Link to="/contact">Start the conversation</Link>
-      </div>
+      <CallToAction />
     </div>
   );
 };
