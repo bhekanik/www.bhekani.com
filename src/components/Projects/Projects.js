@@ -1,9 +1,10 @@
-import React, { useEffect, useContext } from "react";
+import React, { useEffect, useContext, Suspense } from "react";
 
 import "./projects.css";
 
-import Project from "./Project/Project";
 import { Context } from "../../App";
+import projects from "../../projects/projects";
+const Project = React.lazy(() => import("./Project/Project"));
 
 const Projects = () => {
   const dispatch = useContext(Context);
@@ -23,13 +24,23 @@ const Projects = () => {
   return (
     <section className="portfolio" id="portfolio">
       <h1>Some of my work</h1>
-      <div className="portfolio-items">
-        <Project />
-        <Project />
-        <Project />
-        <Project />
-        <Project />
-      </div>
+      <Suspense fallback={<div>Loading...</div>}>
+        <div className="portfolio-items">
+          {projects.map(project => {
+            return (
+              <Project
+                key={project.key}
+                name={project.name}
+                imageSource={project.imageSource}
+                demoUrl={project.demoUrl}
+                demoAvailable={project.demoAvailable}
+                code={project.code}
+                codeAvailable={project.codeAvailable}
+              />
+            );
+          })}
+        </div>
+      </Suspense>
     </section>
   );
 };

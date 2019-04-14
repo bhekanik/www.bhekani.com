@@ -18,8 +18,8 @@
 .cta a {
   text-decoration: none;
   margin-top: 1em;
-  background: #03afc2;
-  border: none;
+  background: transparent;
+  border: 3px solid #03afc2;
   font-size: 1.5rem;
   letter-spacing: 0.1em;
   color: white;
@@ -30,4 +30,9 @@
   padding: 0.5em 1.5em;
   cursor: pointer;
   max-width: 60vw;
+}
+
+.cta a:hover {
+  background: #03afc2;
+  color: white;
 }

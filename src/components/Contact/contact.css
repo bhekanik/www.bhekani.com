@@ -70,11 +70,11 @@ textarea {
   min-width: auto;
   margin-top: 1em;
   margin-left: auto;
-  background: #03afc2;
-  border: none;
+  background: transparent;
+  border: 3px solid #03afc2;
   font-size: 2rem;
   letter-spacing: 0.15em;
-  color: white;
+  color: #223843;
   text-transform: uppercase;
   line-height: 1;
   font-family: "Roboto Condensed", sans-serif;
@@ -84,5 +84,6 @@ textarea {
 }
 
 .button:hover {
-  background: darken(#03afc2, 10%);
+  background: #03afc2;
+  color: white;
 }
