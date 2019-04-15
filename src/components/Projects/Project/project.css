@@ -31,7 +31,7 @@ footer::after {
 }
 
 .portfolio__port-desc span {
-  font-size: 0.7em;
+  font-size: 0.6em;
 }
 
 @media (min-width: 37rem) {

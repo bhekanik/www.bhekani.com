@@ -3,7 +3,7 @@ export default [
     key: 1,
     name: "My Website",
     imageSource: "//unsplash.it/1920/1080",
-    demoUrl: "",
+    demoUrl: "https://react.bhekani.com",
     demoAvailable: true,
     code: "https://github.com/bhekanik/react.bhekani.com",
     codeAvailable: true

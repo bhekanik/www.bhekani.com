@@ -21,7 +21,11 @@ const Contact = () => {
   return (
     <section className="contact" id="contact">
       <h1>Contact Me</h1>
-      <form name="contact" method="POST" data-netlify="true" action="./">
+      <form
+        name="contact"
+        method="POST"
+        data-netlify="true"
+        action="https://react.bhekani.com/success">
         <label className="name">
           Name:
           <input type="text" id="name" name="name" required />
