@@ -24,8 +24,14 @@ const Contact = () => {
       <form
         name="contact"
         method="POST"
-        data-netlify="true"
-        action="https://react.bhekani.com/success">
+        netlify-honeypot="bot-field"
+        data-netlify="true">
+        <p style={{ display: "none" }}>
+          <label>
+            Don’t fill this out if you're human: <input name="bot-field" />
+          </label>
+        </p>
+
         <label className="name">
           Name:
           <input type="text" id="name" name="name" required />
