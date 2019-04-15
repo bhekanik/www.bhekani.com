@@ -55,21 +55,21 @@ const Home = props => {
     };
   }, []);
 
-  function smoothScroll(targetSelector, duration) {
+  const smoothScroll = (targetSelector, duration) => {
     const target = document.querySelector(targetSelector);
     const targetPosition = target.getBoundingClientRect().top - 50;
     const startPosition = window.pageYOffset;
     const distance = targetPosition - startPosition;
     let startTime = null;
 
-    function animation(currentTime) {
+    const animation = currentTime => {
       if (startTime === null) startTime = currentTime;
       const timeElapsed = currentTime - startTime;
       const run = ease(timeElapsed, startPosition, distance, duration);
       window.scrollTo(0, run);
 
       if (timeElapsed < duration) requestAnimationFrame(animation);
-    }
+    };
 
     function ease(t, b, c, d) {
       t /= d / 2;
@@ -79,11 +79,11 @@ const Home = props => {
     }
 
     requestAnimationFrame(animation);
-  }
+  };
 
-  function smoothScrollRunner() {
+  const smoothScrollRunner = () => {
     smoothScroll(".intro", 1000);
-  }
+  };
 
   return (
     <div>
