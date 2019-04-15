@@ -1,7 +1,6 @@
 import React, { useReducer } from "react";
 import { Switch, Route } from "react-router-dom";
 
-import Announcement from "./components/Announcement/Announcement";
 import Navbar from "./components/Navbar/Navbar";
 import Home from "./components/Home/Home";
 import About from "./components/About/About";

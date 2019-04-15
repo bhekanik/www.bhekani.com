@@ -22,7 +22,7 @@ const Home = props => {
   const dispatch = useContext(Context);
 
   const changeNavStyle = () => {
-    if (document.querySelector(".intro").getBoundingClientRect().top > 0) {
+    if (document.querySelector(".intro").getBoundingClientRect().top - 60 > 0) {
       dispatch({
         type: "nav",
         payload: {
@@ -55,6 +55,36 @@ const Home = props => {
     };
   }, []);
 
+  function smoothScroll(targetSelector, duration) {
+    const target = document.querySelector(targetSelector);
+    const targetPosition = target.getBoundingClientRect().top - 50;
+    const startPosition = window.pageYOffset;
+    const distance = targetPosition - startPosition;
+    let startTime = null;
+
+    function animation(currentTime) {
+      if (startTime === null) startTime = currentTime;
+      const timeElapsed = currentTime - startTime;
+      const run = ease(timeElapsed, startPosition, distance, duration);
+      window.scrollTo(0, run);
+
+      if (timeElapsed < duration) requestAnimationFrame(animation);
+    }
+
+    function ease(t, b, c, d) {
+      t /= d / 2;
+      if (t < 1) return (c / 2) * t * t + b;
+      t--;
+      return (-c / 2) * (t * (t - 2) - 1) + b;
+    }
+
+    requestAnimationFrame(animation);
+  }
+
+  function smoothScrollRunner() {
+    smoothScroll(".intro", 1000);
+  }
+
   return (
     <div>
       <div className="welcome parallax--bg" id="home">
@@ -68,7 +98,12 @@ const Home = props => {
             }
           </p>
         </h1>
-        <img className="welcome-down" src={arrow} alt="" />
+        <img
+          className="welcome-down"
+          src={arrow}
+          alt=""
+          onClick={smoothScrollRunner}
+        />
       </div>
       <Intro />
       <div className="tech">
