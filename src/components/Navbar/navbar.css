@@ -52,13 +52,13 @@ nav ul {
   nav {
     bottom: 0;
     top: initial;
-    border-top: 1px solid #223843;
+    border-top: 0.5px solid #223843;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   }
 
   .navbar li {
     width: 25vw;
-    border-right: 1px solid #223843;
+    border-right: 1px solid rgba(34, 56, 67, 0.3);
   }
 
   .navbar li:last-of-type {
