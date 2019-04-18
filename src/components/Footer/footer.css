@@ -19,6 +19,14 @@ footer {
   height: 25%;
 }
 
+.social-icon img {
+  filter: invert(30%);
+}
+
+.social-icon img:hover {
+  filter: invert(0);
+}
+
 .copyright {
   color: #e8e9eb;
   font-size: 0.8em;
@@ -31,14 +39,6 @@ footer {
   background: rgba(232, 233, 235, 0.7);
   margin: 2em auto 1em;
   width: 15%;
-}
-
-.social-icon img {
-  filter: invert(30%);
-}
-
-.social-icon img:hover {
-  filter: invert(0);
 }
 
 @media (max-width: 50em) {

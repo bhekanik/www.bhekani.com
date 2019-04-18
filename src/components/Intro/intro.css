@@ -40,3 +40,23 @@
   min-width: 100%;
   display: block;
 }
+
+.intro-social-icons {
+  /* width: 90%; */
+  /* max-width: 15em; */
+  display: flex;
+  justify-content: center;
+  margin: 1em auto;
+}
+
+.intro-social-icon {
+  margin: 0 0.3em;
+}
+
+.intro-social-icon img {
+  filter: invert(30%);
+}
+
+.intro-social-icon img:hover {
+  filter: invert(0);
+}

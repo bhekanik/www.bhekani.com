@@ -80,7 +80,7 @@ const Home = props => {
       }
     };
     const startPosition = window.pageYOffset;
-    const distance = getTargetPosition() - startPosition;
+    const distance = getTargetPosition();
     let startTime = null;
 
     const animation = currentTime => {
