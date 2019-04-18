@@ -21,7 +21,7 @@ const About = () => {
   }, []);
 
   return (
-    <React.Fragment>
+    <>
       <section className="about-me" id="about">
         <img
           className="about-img"
@@ -79,7 +79,7 @@ const About = () => {
         </div>
       </section>
       <CallToAction />
-    </React.Fragment>
+    </>
   );
 };
 
