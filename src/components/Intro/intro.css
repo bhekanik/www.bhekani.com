@@ -60,3 +60,9 @@
 .intro-social-icon img:hover {
   filter: invert(0);
 }
+
+@media (max-width: 50em) {
+  .intro-social-icon img {
+    width: 70%;
+  }
+}
