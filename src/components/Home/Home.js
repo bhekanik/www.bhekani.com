@@ -22,15 +22,29 @@ const Home = props => {
   const dispatch = useContext(Context);
 
   const changeNavStyle = () => {
-    if (document.querySelector(".intro").getBoundingClientRect().top - 60 > 0) {
-      dispatch({
-        type: "nav",
-        payload: {
-          navBackgroundColor: "transparent",
-          linkColor: "#e8e9eb",
-          boxShadow: "none"
-        }
-      });
+    if (window.outerWidth > 800) {
+      if (
+        document.querySelector(".intro").getBoundingClientRect().top - 60 >
+        0
+      ) {
+        dispatch({
+          type: "nav",
+          payload: {
+            navBackgroundColor: "transparent",
+            linkColor: "#e8e9eb",
+            boxShadow: "none"
+          }
+        });
+      } else {
+        dispatch({
+          type: "nav",
+          payload: {
+            navBackgroundColor: "white",
+            linkColor: "#223843",
+            boxShadow: "0 10px 10px -10px rgba(0, 0, 0, 0.5)"
+          }
+        });
+      }
     } else {
       dispatch({
         type: "nav",
@@ -49,6 +63,7 @@ const Home = props => {
     changeNavStyle();
 
     window.addEventListener("scroll", changeNavStyle);
+    window.addEventListener("resize", changeNavStyle);
 
     return () => {
       window.removeEventListener("scroll", changeNavStyle);
@@ -57,9 +72,15 @@ const Home = props => {
 
   const smoothScroll = (targetSelector, duration) => {
     const target = document.querySelector(targetSelector);
-    const targetPosition = target.getBoundingClientRect().top - 50;
+    const getTargetPosition = () => {
+      if (window.outerWidth > 800) {
+        return target.getBoundingClientRect().top - 50;
+      } else {
+        return target.getBoundingClientRect().top;
+      }
+    };
     const startPosition = window.pageYOffset;
-    const distance = targetPosition - startPosition;
+    const distance = getTargetPosition() - startPosition;
     let startTime = null;
 
     const animation = currentTime => {
@@ -89,12 +110,10 @@ const Home = props => {
     <div>
       <div className="welcome parallax--bg" id="home">
         <h1>
-          <span>
-            {"Full Stack Web Developer, GIS Specialist & Civil Engineer"}
-          </span>
+          <span>{"Full Stack Web & GIS Developer"}</span>
           <p>
             {
-              "I create impactful and feature driven applications to help businesses make a statement. I work as a GIS Developer at ESRI South Africa and I am dedicated to building intuitive, well-designed software."
+              "I am dedicated to creating intuitive and well designed feature driven applications to help businesses make a statement."
             }
           </p>
         </h1>
@@ -107,12 +126,11 @@ const Home = props => {
       </div>
       <Intro />
       <div className="tech">
-        <h2>{"Working with the newest technology."}</h2>
+        <h2>{"The best technology for the job."}</h2>
         <p>
           {
-            "My philosophy is that all applications should be modern and intuitive whether they are for mobile or desktop. I take pride in my knowledge in a variety of different technologies to build whatever - whenever."
+            "My philosophy is that all applications should be modern and intuitive, utiilizing the latest and best technology for the job. I take pride in my continuously growing knowledge in a variety of different technologies."
           }
-          "
         </p>
         <div className="technologies__items">
           <img src={html5Logo} alt="HTML5" className="tech__logo" />

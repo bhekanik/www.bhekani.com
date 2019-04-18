@@ -1,7 +1,7 @@
 .portfolio {
   text-align: center;
   background: #e8e9eb;
-  padding: 5em 0;
+  padding: 1.5em 0;
 }
 
 .portfolio-items {
@@ -23,5 +23,11 @@
     .portfolio-items {
       grid-template-columns: repeat(3, 1fr);
     }
+  }
+}
+
+@media (min-width: 50em) {
+  .portfolio {
+    padding: 5em 0;
   }
 }

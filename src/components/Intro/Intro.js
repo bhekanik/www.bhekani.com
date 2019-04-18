@@ -12,11 +12,8 @@ const Intro = () => {
         <img src={introLeft} alt="" />
       </div>
       <div className="intro-middle">
-        <h2>Hi, I'm Bhekani</h2>
-        <p>
-          A passionate developer, civil engineer and GIS specialist who believes
-          in continuous growth.
-        </p>
+        <h2>{"Hi, I'm BK"}</h2>
+        <p>{"I am a GIS Developer at ESRI South Africa."}</p>
       </div>
       <div className="intro-right">
         <img src={introRight} alt="" />

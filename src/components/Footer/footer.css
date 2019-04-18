@@ -40,3 +40,13 @@ footer {
 .social-icon img:hover {
   filter: invert(0);
 }
+
+@media (max-width: 50em) {
+  footer {
+    margin-bottom: 50px;
+  }
+
+  .copyright {
+    margin-bottom: 2.5em;
+  }
+}

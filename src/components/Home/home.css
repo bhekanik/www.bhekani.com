@@ -22,13 +22,6 @@
   width: 90vw;
 }
 
-@media (min-width: 50em) {
-  .welcome h1 {
-    font-size: 3vw;
-    width: 60vw;
-  }
-}
-
 .welcome h1 span {
   font-size: 2rem;
   letter-spacing: 0.1em;
@@ -41,12 +34,6 @@
   margin-bottom: 1rem;
 }
 
-@media (min-width: 50em) {
-  .welcome h1 span {
-    font-size: 3vw;
-  }
-}
-
 .welcome h1 p {
   font-size: 0.8rem;
   color: #e8e9eb;
@@ -54,12 +41,6 @@
   font-family: "Merriweather", serif;
   font-weight: 400;
   display: block;
-}
-
-@media (min-width: 50em) {
-  .welcome h1 p {
-    font-size: 1vw;
-  }
 }
 
 .welcome h1::before,
@@ -81,7 +62,7 @@
 
 .welcome-down {
   position: absolute;
-  bottom: 5%;
+  margin-bottom: 10vw;
   max-width: 3.5vh;
   transform: rotate(90deg);
   animation: bounce 2s infinite;
@@ -122,14 +103,57 @@
 .technologies__items {
   display: flex;
   flex-basis: 100%;
+  width: 80%;
+}
+
+@supports (display: grid) {
+  .technologies__items {
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    margin-top: 20px;
+  }
 }
 
 .tech__logo {
-  width: 7vw;
-  min-width: 50px;
-  height: 10vw;
+  width: auto;
+  height: auto;
   object-fit: contain;
   filter: saturate();
   filter: grayscale();
   margin: 0 5px;
+}
+
+@media (min-width: 50em) {
+  .welcome h1 {
+    font-size: 3vw;
+    width: 60vw;
+  }
+
+  .welcome h1 span {
+    font-size: 3vw;
+  }
+
+  .welcome h1 p {
+    font-size: 1vw;
+  }
+
+  .welcome-down {
+    margin-bottom: 0;
+  }
+
+  .technologies__items {
+    display: flex;
+    flex-basis: 100%;
+  }
+
+  .tech__logo {
+    width: 7vw;
+    height: 10vw;
+    object-fit: contain;
+    filter: saturate();
+    filter: grayscale();
+    margin: 0 5px;
+  }
 }
