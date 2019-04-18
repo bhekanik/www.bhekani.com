@@ -4,6 +4,8 @@ import "./projects.css";
 
 import { Context } from "../../App";
 import projects from "../../projects/projects";
+import CallToAction from "../CallToAction/CallToAction";
+
 const Project = React.lazy(() => import("./Project/Project"));
 
 const Projects = () => {
@@ -22,26 +24,29 @@ const Projects = () => {
   }, []);
 
   return (
-    <section className="portfolio" id="portfolio">
-      <h1>Some of my work</h1>
-      <Suspense fallback={<div>Loading...</div>}>
-        <div className="portfolio-items">
-          {projects.map(project => {
-            return (
-              <Project
-                key={project.key}
-                name={project.name}
-                imageSource={project.imageSource}
-                demoUrl={project.demoUrl}
-                demoAvailable={project.demoAvailable}
-                code={project.code}
-                codeAvailable={project.codeAvailable}
-              />
-            );
-          })}
-        </div>
-      </Suspense>
-    </section>
+    <>
+      <section className="portfolio" id="portfolio">
+        <h1>Some of my work</h1>
+        <Suspense fallback={<div>Loading...</div>}>
+          <div className="portfolio-items">
+            {projects.map(project => {
+              return (
+                <Project
+                  key={project.key}
+                  name={project.name}
+                  imageSource={project.imageSource}
+                  demoUrl={project.demoUrl}
+                  demoAvailable={project.demoAvailable}
+                  code={project.code}
+                  codeAvailable={project.codeAvailable}
+                />
+              );
+            })}
+          </div>
+        </Suspense>
+      </section>
+      <CallToAction />
+    </>
   );
 };
 

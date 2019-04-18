@@ -107,7 +107,7 @@ const Home = props => {
   };
 
   return (
-    <div>
+    <>
       <div className="welcome parallax--bg" id="home">
         <h1>
           <span>{"Full Stack Web & GIS Developer"}</span>
@@ -154,7 +154,7 @@ const Home = props => {
         </div>
       </div>
       <CallToAction />
-    </div>
+    </>
   );
 };
 

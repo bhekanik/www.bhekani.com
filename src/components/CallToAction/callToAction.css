@@ -36,3 +36,7 @@
   background: #03afc2;
   color: white;
 }
+
+.cta a:active {
+  transform: scale(0.9);
+}

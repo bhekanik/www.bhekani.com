@@ -87,3 +87,7 @@ textarea {
   background: #03afc2;
   color: white;
 }
+
+.button:active {
+  transform: scale(0.9);
+}
