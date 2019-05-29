@@ -14,7 +14,10 @@ const About = () => {
       type: "nav",
       payload: {
         navBackgroundColor: "white",
-        linkColor: "#223843",
+        aboutLinkColor: "#e8e9eb",
+        homeLinkColor: "#223843",
+        projectsLinkColor: "#223843",
+        contactLinkColor: "#223843",
         boxShadow: "0 10px 10px -10px rgba(0, 0, 0, 0.5)"
       }
     });

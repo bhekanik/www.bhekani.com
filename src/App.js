@@ -24,8 +24,31 @@ const appReducer = (state, action) => {
       return {
         ...state,
         navBackgroundColor: action.payload.navBackgroundColor,
-        linkColor: action.payload.linkColor,
+        homeLinkColor: action.payload.homeLinkColor,
+        aboutLinkColor: action.payload.aboutLinkColor,
+        projectsLinkColor: action.payload.projectsLinkColor,
+        contactLinkColor: action.payload.contactLinkColor,
         boxShadow: action.payload.boxShadow
+      };
+    case "homeLink":
+      return {
+        ...state,
+        homeLinkColor: action.payload.linkColor
+      };
+    case "aboutLink":
+      return {
+        ...state,
+        aboutLinkColor: action.payload.linkColor
+      };
+    case "projectsLink":
+      return {
+        ...state,
+        projectsLinkColor: action.payload.linkColor
+      };
+    case "contactLink":
+      return {
+        ...state,
+        contactLinkColor: action.payload.linkColor
       };
     default:
       return state;
@@ -34,10 +57,13 @@ const appReducer = (state, action) => {
 
 const App = () => {
   const [state, dispatch] = useReducer(appReducer, {
-    navbackgroundColor: "transparent",
-    linkColor: "#e8e9eb",
+    navbackgroundColor: "rgba(0,0,0,0.3)",
+    homeLinkColor: "#e8e9eb",
+    aboutLinkColor: "#e8e9eb",
+    projectsLinkColor: "#e8e9eb",
+    contactLinkColor: "#e8e9eb",
     boxShadow: "none",
-    page: "home"
+    page: "home",
   });
 
   return (
@@ -45,8 +71,12 @@ const App = () => {
       <div className="App">
         <Navbar
           navbackgroundColor={state.navBackgroundColor}
-          linkColor={state.linkColor}
+          homeLinkColor={state.homeLinkColor}
+          aboutLinkColor={state.aboutLinkColor}
+          projectsLinkColor={state.projectsLinkColor}
+          contactLinkColor={state.contactLinkColor}
           boxShadow={state.boxShadow}
+          page={state.page}
         />
         <Switch>
           <Route exact path="/" render={() => <Home page={state.page} />} />

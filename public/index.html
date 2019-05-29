@@ -6,9 +6,11 @@
       name="viewport"
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
+    <meta name="description" content="BK's Portfolio Website" />
     <meta name="theme-color" content="#000000" />
 
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    <link rel="shortcut icon" href="%PUBLIC_URL%/icon-144.ico" />
 
     <title>
       Bhekani Khumalo | Software Developer, Civil Engineer, Artist & GIS
@@ -18,5 +20,18 @@
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
+
+    <form
+        name="contact"
+        netlify-honeypot="bot-field"
+        netlify
+        action="/success"
+        hidden
+        style="display: none"
+        >
+          <input type="text" name="name" />
+          <input type="email" name="email" />
+          <textarea name="message"></textarea>
+      </form>
   </body>
 </html>

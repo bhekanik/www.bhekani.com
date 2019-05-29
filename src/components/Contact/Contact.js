@@ -12,7 +12,10 @@ const Contact = () => {
       type: "nav",
       payload: {
         navBackgroundColor: "white",
-        linkColor: "#223843",
+        contactLinkColor: "#e8e9eb",
+        homeLinkColor: "#223843",
+        aboutLinkColor: "#223843",
+        projectsLinkColor: "#223843",
         boxShadow: "0 10px 10px -10px rgba(0, 0, 0, 0.5)"
       }
     });
@@ -24,13 +27,10 @@ const Contact = () => {
       <form
         name="contact"
         method="POST"
-        netlify-honeypot="bot-field"
-        data-netlify="true">
-        <p style={{ display: "none" }}>
-          <label>
-            Don’t fill this out if you're human: <input name="bot-field" />
-          </label>
-        </p>
+        action="/success"
+        >
+        <input type="hidden" name="form-name" value="rsvp" />
+        <input type="hidden" name="bot-field" />
 
         <label className="name">
           Name:

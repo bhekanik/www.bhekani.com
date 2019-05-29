@@ -18,7 +18,7 @@ import arcgisLogo from "../../img/arcgis_logo.png";
 import gitLogo from "../../img/git_logo.png";
 import olLogo from "../../img/ol_logo.png";
 
-const Home = props => {
+const Home = () => {
   const dispatch = useContext(Context);
 
   const changeNavStyle = () => {
@@ -30,8 +30,11 @@ const Home = props => {
         dispatch({
           type: "nav",
           payload: {
-            navBackgroundColor: "transparent",
-            linkColor: "#e8e9eb",
+            navBackgroundColor: "rgba(0,0,0,0.3)",
+            homeLinkColor: "#e8e9eb",
+            aboutLinkColor: "#e8e9eb",
+            projectsLinkColor: "#e8e9eb",
+            contactLinkColor: "#e8e9eb",
             boxShadow: "none"
           }
         });
@@ -40,7 +43,6 @@ const Home = props => {
           type: "nav",
           payload: {
             navBackgroundColor: "white",
-            linkColor: "#223843",
             boxShadow: "0 10px 10px -10px rgba(0, 0, 0, 0.5)"
           }
         });
@@ -50,7 +52,6 @@ const Home = props => {
         type: "nav",
         payload: {
           navBackgroundColor: "white",
-          linkColor: "#223843",
           boxShadow: "0 10px 10px -10px rgba(0, 0, 0, 0.5)"
         }
       });
