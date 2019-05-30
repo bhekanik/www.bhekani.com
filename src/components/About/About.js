@@ -44,7 +44,7 @@ const About = () => {
               article
             </a>
             {
-              "on what Civil Engineering taught me about being a good software developer."
+              "about my move from Civil Engineering to Software Development and what Civil Engineering taught me about being a good software developer."
             }
           </p>
           <p>
