@@ -5,11 +5,8 @@ import "./intro.css";
 import introLeft from "../../img/intro-left.jpg";
 import introRight from "../../img/intro-right.jpg";
 
-import facebookLogo from "../../img/facebook.png";
-import instagramLogo from "../../img/instagram.png";
 import linkedinLogo from "../../img/linkedin.png";
 import twitterLogo from "../../img/twitter.png";
-import youtubeLogo from "../../img/youtube.png";
 
 const Intro = () => {
   return (
@@ -22,22 +19,6 @@ const Intro = () => {
         <p>{"I am a GIS Developer at ESRI South Africa."}</p>
         <div className="intro-social">
           <div className="intro-social-icons">
-            {/* <a
-              className="intro-social-icon"
-              href="https://www.facebook.com/bhekanik"
-              target="_blank"
-              alt="Facebook logo" 
-              rel="noopener noreferrer">
-              <img src={facebookLogo} alt="Facebook logo" target="_blank" />
-            </a>
-            <a
-              className="intro-social-icon"
-              href="https://instagram.com/bhekanik"
-              target="_blank"
-              alt="Instagram logo" 
-              rel="noopener noreferrer">
-              <img src={instagramLogo} alt="Instagram logo" />
-            </a> */}
             <a
               className="intro-social-icon linkedin"
               href="https://www.linkedin.com/in/bhekanik/"
@@ -54,14 +35,6 @@ const Intro = () => {
               rel="noopener noreferrer">
               <img src={twitterLogo} alt="Twitter logo" />
             </a>
-            {/* <a
-              className="intro-social-icon"
-              href="https://www.youtube.com/channel/UCNNaw5_xYuNle7jUU5Y8mmQ"
-              target="_blank"
-              alt="Youtube logo" 
-              rel="noopener noreferrer">
-              <img src={youtubeLogo} alt="Youtube logo" />
-            </a> */}
           </div>
         </div>
       </div>
