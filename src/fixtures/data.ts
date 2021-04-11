@@ -1,20 +1,39 @@
-export const blogPosts = [
-  {
-    title: "First Post",
-    slug: "first",
-    date: new Date().toISOString(),
-    content: "Some stuff in here ",
-  },
-  {
-    title: "Second Post",
-    slug: "second",
-    date: new Date().toISOString(),
-    content: "Some stuff in here ",
-  },
-  {
-    title: "Third Post",
-    slug: "third",
-    date: new Date().toISOString(),
-    content: "Some stuff in here ",
-  },
-];
+import fs from "fs";
+import matter from "gray-matter";
+import path from "path";
+
+const contentDirectory = path.join(process.cwd(), "src/content");
+
+interface FrontMatter {
+  title: string;
+  description: string;
+  date: Date;
+  tags: string;
+  cover_image: string;
+}
+
+interface Post {
+  data: FrontMatter;
+  content: string;
+  slug: string;
+}
+
+export const getAllPosts = (): Post[] => {
+  const allPosts = fs.readdirSync(contentDirectory);
+
+  return allPosts.map((fileName) => {
+    const slug = fileName.replace(".md", "");
+
+    const fileContents = fs.readFileSync(
+      path.join(contentDirectory, fileName),
+      "utf-8"
+    );
+    const { data, content } = matter(fileContents);
+
+    return {
+      data: data as FrontMatter,
+      content,
+      slug,
+    };
+  });
+};
