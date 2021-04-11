@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 
 export const MainNavigation = () => {
@@ -7,8 +8,12 @@ export const MainNavigation = () => {
       <nav>
         <ul>
           <li>
-            <a href="">Home</a>
-            <a href="">About</a>
+            <Link href="/">
+              <a>Home</a>
+            </Link>
+            <Link href="/about">
+              <a>About</a>
+            </Link>
           </li>
         </ul>
       </nav>
