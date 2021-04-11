@@ -4,13 +4,15 @@ import React from "react";
 export const MainNavigation = () => {
   return (
     <header>
-      <h1>BK</h1>
-      <nav>
-        <ul>
+      <h1 className="text-6xl font-bold text-center">BK</h1>
+      <nav className="my-4">
+        <ul className="flex flex-row justify-center space-x-4">
           <li>
             <Link href="/">
               <a>Home</a>
             </Link>
+          </li>
+          <li>
             <Link href="/about">
               <a>About</a>
             </Link>
