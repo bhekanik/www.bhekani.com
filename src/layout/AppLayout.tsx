@@ -1,7 +1,15 @@
 import React from "react";
+import { MainNavigation } from "./MainNavigation";
 
-const AppLayout = ({ children }) => {
-  return <div className="mx-auto w-9/12 my-8">{children}</div>;
+interface Props {
+  children: React.ReactNode;
+}
+
+export const AppLayout = ({ children }: Props): JSX.Element => {
+  return (
+    <div className="mx-auto w-9/12 my-8">
+      <MainNavigation />
+      {children}
+    </div>
+  );
 };
-
-export default AppLayout;

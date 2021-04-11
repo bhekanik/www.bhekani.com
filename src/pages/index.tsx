@@ -1,7 +1,6 @@
 import Head from "next/head";
-import Link from "next/link";
+import { BlogListItem } from "../components/BlogListItem";
 import { blogPosts } from "../fixtures/data";
-import MainNavigation from "../layout/MainNavigation";
 
 const Home = () => {
   return (
@@ -10,19 +9,10 @@ const Home = () => {
         <title>Bhekani.com | My blog</title>
       </Head>
 
-      <MainNavigation />
       <h1>Home</h1>
-      <div>
+      <div className="space-y-4">
         {blogPosts.map((post) => (
-          <div key={post.slug}>
-            <div>
-              <Link href={`/blog/${post.slug}`}>
-                <a>{post.title}</a>
-              </Link>
-            </div>
-            <div>{post.date}</div>
-            <div>{post.content}</div>
-          </div>
+          <BlogListItem key={post.slug} {...post} />
         ))}
       </div>
     </div>

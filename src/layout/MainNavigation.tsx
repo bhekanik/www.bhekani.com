@@ -1,7 +1,7 @@
 import Link from "next/link";
 import React from "react";
 
-export const MainNavigation = () => {
+export const MainNavigation = (): JSX.Element => {
   return (
     <header>
       <h1 className="text-6xl font-bold text-center">BK</h1>
@@ -22,5 +22,3 @@ export const MainNavigation = () => {
     </header>
   );
 };
-
-export default MainNavigation;
