@@ -4,7 +4,7 @@ import path from "path";
 
 const contentDirectory = path.join(process.cwd(), "src/content");
 
-interface FrontMatter {
+export interface FrontMatter {
   title: string;
   description: string;
   date: Date;
@@ -12,7 +12,7 @@ interface FrontMatter {
   cover_image: string;
 }
 
-interface Post {
+export interface Post {
   data: FrontMatter;
   content: string;
   slug: string;

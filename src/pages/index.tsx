@@ -1,7 +1,7 @@
 import { GetStaticProps } from "next";
-import Head from "next/head";
 import React from "react";
 import { BlogListItem } from "../components/BlogListItem";
+import { SEO } from "../components/Seo";
 import { getAllPosts } from "../fixtures/data";
 
 interface Post {
@@ -20,12 +20,10 @@ interface Props {
 const Home = ({ posts }: Props) => {
   return (
     <div>
-      <Head>
-        <title>Bhekani.com | My blog</title>
-      </Head>
+      <SEO title="Home" description="The landing page for bhekani.com" />
 
       <div className="space-y-4">
-        {posts.map((post) => (
+        {posts?.map((post: Post) => (
           <BlogListItem key={post.slug} {...post} />
         ))}
       </div>

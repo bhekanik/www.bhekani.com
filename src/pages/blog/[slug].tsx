@@ -2,11 +2,11 @@ import { GetStaticPaths, GetStaticProps } from "next";
 import hydrate from "next-mdx-remote/hydrate";
 import renderToString from "next-mdx-remote/render-to-string";
 import { MdxRemote } from "next-mdx-remote/types";
-import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import { BlogDate } from "../../components/BlogDate";
+import { SEO } from "../../components/Seo";
 import { getAllPosts } from "../../fixtures/data";
 
 interface Props {
@@ -24,12 +24,11 @@ export const BlogPost = ({
   date,
   content,
   cover_image,
+  description,
 }: Props): JSX.Element => {
   return (
     <div>
-      <Head>
-        <title>Bhekani.com | </title>
-      </Head>
+      <SEO title={title} description={description} />
 
       <div className="mb-8 mt-4">
         <Link href="/">
@@ -37,20 +36,24 @@ export const BlogPost = ({
         </Link>
       </div>
 
-      <Image
-        src={cover_image}
-        width={1000}
-        height={500}
-        layout="responsive"
-        objectFit="cover"
-      />
+      {cover_image && (
+        <Image
+          src={cover_image}
+          width={1000}
+          height={500}
+          layout="responsive"
+          objectFit="cover"
+        />
+      )}
 
       <div className="border-b-2 border-gray-200 my-8">
         <h2 className="text-3xl font-bold">{title}</h2>
-        <BlogDate date={date} size="md" />
+        {date && <BlogDate date={date} size="md" />}
       </div>
       <main>
-        <article className="prose max-w-none">{hydrate(content)}</article>
+        <article className="prose max-w-none">
+          {content && hydrate(content)}
+        </article>
       </main>
     </div>
   );

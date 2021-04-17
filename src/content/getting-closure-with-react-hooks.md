@@ -1,8 +1,8 @@
 ---
 title: Getting Closure with React Hooks
 published: false
-description:
-tags:
+description: No description
+tags: work in progress
 date: 2021-04-11T22:15:14.588Z
 cover_image: https://thepracticaldev.s3.amazonaws.com/i/u5am6bureo9y0yejd51e.png
 ---
