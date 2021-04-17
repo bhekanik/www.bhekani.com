@@ -32,7 +32,7 @@ export const BlogPost = ({
 
       <div className="mb-8 mt-4">
         <Link href="/">
-          <a>{`< Back`}</a>
+          <button>{`< Back`}</button>
         </Link>
       </div>
 
