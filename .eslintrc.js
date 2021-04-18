@@ -26,5 +26,6 @@ module.exports = {
   rules: {
     "linebreak-style": ["error", "unix"],
     semi: ["error", "always"],
+    "react/react-in-jsx-scope": "off",
   },
 };

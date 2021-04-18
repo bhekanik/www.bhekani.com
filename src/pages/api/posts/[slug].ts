@@ -19,10 +19,12 @@ interface Data {
   data?: {
     posts: Post[] | Post;
   };
-  error?: {};
 }
 
-export default async (req: NextApiRequest, res: NextApiResponse<Data>) => {
+export default async (
+  req: NextApiRequest,
+  res: NextApiResponse<Data>
+): Promise<void> => {
   const allPosts = getAllPosts();
   if (req.query.slug) {
     console.log("req.query.slug:", req.query.slug);
@@ -39,10 +41,6 @@ export default async (req: NextApiRequest, res: NextApiResponse<Data>) => {
           slug,
         },
       },
-    });
-  } else {
-    res.status(404).json({
-      error: {},
     });
   }
 };

@@ -17,15 +17,24 @@ interface Props {
   posts: Post[];
 }
 
-const Home = ({ posts }: Props) => {
+const Home = ({ posts }: Props): JSX.Element => {
   return (
     <div>
       <SEO title="Home" description="The landing page for bhekani.com" />
 
+      <h1>Featured Work</h1>
+      <h2>Writing</h2>
+
       <div className="space-y-4">
-        {posts?.map((post: Post) => (
-          <BlogListItem key={post.slug} {...post} />
-        ))}
+        {posts
+          ?.sort((postA, postB) => {
+            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+            // @ts-ignore
+            return new Date(postB.date) - new Date(postA.date);
+          })
+          .map((post: Post) => (
+            <BlogListItem key={post.slug} {...post} />
+          ))}
       </div>
     </div>
   );

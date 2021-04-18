@@ -32,7 +32,7 @@ export const BlogPost = ({
 
       <div className="mb-8 mt-4">
         <Link href="/">
-          <button>{`< Back`}</button>
+          <a href="/">{`< Back`}</a>
         </Link>
       </div>
 
@@ -46,9 +46,9 @@ export const BlogPost = ({
         />
       )}
 
-      <div className="border-b-2 border-gray-200 my-8">
-        <h2 className="text-3xl font-bold">{title}</h2>
-        {date && <BlogDate date={date} size="md" />}
+      <div className="border-b-2 border-gray-200 my-8 pb-4">
+        <h2 className="text-4xl font-bold mb-6">{title}</h2>
+        {date && <BlogDate date={date} />}
       </div>
       <main>
         <article className="prose max-w-none">

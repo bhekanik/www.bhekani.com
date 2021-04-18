@@ -3,12 +3,11 @@ import React from "react";
 
 interface Props {
   date: string;
-  size?: "xs" | "md";
 }
 
-export const BlogDate = ({ date, size = "xs" }: Props): JSX.Element => {
+export const BlogDate = ({ date }: Props): JSX.Element => {
   return (
-    <div className={`text-gray-600 text-${size}`}>
+    <div className={`text-gray-600 dark:text-gray-400`}>
       {format(parseISO(date), "MMMM do, uuu")}
     </div>
   );
