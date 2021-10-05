@@ -9,7 +9,7 @@ export interface Post {
   title: string;
   description: string;
   date: string;
-  tags: string;
+  tags?: string;
   cover_image: string;
   content: string | MdxRemote.Source;
   slug: string;
