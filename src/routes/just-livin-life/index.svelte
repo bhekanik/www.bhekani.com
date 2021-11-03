@@ -1,5 +1,5 @@
 <script context="module">
-	import { parse } from 'rss-to-json';
+	import parse from 'rss-to-json';
 
 	export const load = async () => {
 		const podcast = await parse('https://anchor.fm/s/3d49d1c/podcast/rss', {});
