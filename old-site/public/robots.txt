@@ -1,8 +1,0 @@
-#
-# robots.txt
-#
-User-agent: *
-Disallow: */contact?*
-
-Allow: *.js
-Allow: *.css
