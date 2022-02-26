@@ -11804,7 +11804,7 @@ function render(request, {
   return respond({ ...request, host }, options, { prerender });
 }
 var config = {
-  revueApiKey: "ZjIpf7YyL-3xLtDxDTWQeLbZZ6lwJkUw"
+  revueApiKey: {}.VITE_REVUE_API_KEY
 };
 var get = async () => {
   const { data } = await import_axios.default.get("https://www.getrevue.co/api/v2/issues", {
