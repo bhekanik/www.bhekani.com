@@ -29,6 +29,6 @@
   "type": "module",
   "dependencies": {
     "axios": "^0.24.0",
-    "rss-to-json": "^2.0.2"
+    "rss-to-json": "^2.1.1"
   }
 }
